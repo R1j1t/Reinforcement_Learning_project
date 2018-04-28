@@ -35,6 +35,7 @@ class Solve:
         self.train_y=[]
         self.resume =True
         self.prev_frame = None
+        self.visuals = True
         self.lisframes, self.proxy_labels, self.rewards = [],[],[]
         
     ##refining the frame
@@ -61,14 +62,14 @@ class Solve:
     def init_model(self):
 
         # Defing the Neural network
-##        self.model = Sequential()
-##        self.model.add(Reshape((1,80,80),input_shape=(self.input_dim,)))
-##        self.model.add(Conv2D(32,(9,9),subsample=(4, 4), border_mode='same',activation='relu',kernel_initializer = 'VarianceScaling'))
-##        self.model.add(Flatten())
-##        self.model.add(Dense(10,activation = 'relu'))
-##        self.model.add(Dense(self.action_space,activation='softmax'))
-##        self.model.compile(optimizer = keras.optimizers.Adam(lr=0.001),
-##                      loss = keras.losses.categorical_crossentropy)
+        self.model = Sequential()
+        self.model.add(Reshape((1,80,80),input_shape=(self.input_dim,)))
+        self.model.add(Conv2D(32,(9,9),subsample=(4, 4), border_mode='same',activation='relu',kernel_initializer = 'VarianceScaling'))
+        self.model.add(Flatten())
+        self.model.add(Dense(10,activation = 'relu'))
+        self.model.add(Dense(self.action_space,activation='softmax'))
+        self.model.compile(optimizer = keras.optimizers.Adam(lr=0.001),
+                      loss = keras.losses.categorical_crossentropy)
         if self.resume:
           self.model = keras.models.load_model('pong_model.h5')
 
@@ -81,7 +82,8 @@ class Solve:
         observation = self.env.reset()
 
         while True:
-        #    env.render()
+            if self.visuals:
+                self.env.render()
             recentframe = self.refiningframe(observation)
             difference_frame = recentframe - self.prev_frame if self.prev_frame is not None else np.zeros(self.input_dim)
             self.prev_frame = recentframe
