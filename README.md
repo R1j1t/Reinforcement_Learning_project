@@ -1,13 +1,13 @@
 # Reinforcement_Learning_project
 
-This repository holds our Reinforcement learning implementation for 2 vary popular game namely [Pong](https://en.wikipedia.org/wiki/Pong#Gameplay) and [cartpole](https://gym.openai.com/envs/CartPole-v1/). We have used Keras for model building. Two different types of algorithms are used to play the game, the first was Deep Q learning and second was Policy gradient. They both have there advantages and disadvantages. You can read more about them on wikipedia or research papers (preferred option).
+This repository holds our Reinforcement learning implementation for 2 very popular games namely [Pong](https://en.wikipedia.org/wiki/Pong#Gameplay) and [cartpole](https://gym.openai.com/envs/CartPole-v1/). We have used Keras for model building. Two different types of algorithms are used to play the game, the first is Deep Q learning and second was Policy gradient. They both have there advantages and disadvantages. You can read more about them on wikipedia or research papers (preferred option).
 
-All the algorithms were trained on Nvdia GPU. The results shown below do mention the training time as well. To differentiate the two algorithms we have used the following conventions.
+All the algorithms were trained a 12 GB Nvdia GPU. The results shown below do mention the training time as well. To differentiate the two algorithms we have used the following conventions.
 
 
--  Game_DQN = implementation of "Game" by Deep Q-learning. This implementation is based on Natures paper on Deep Q learning.
+-  Game_DQN = implementation of "Game" by Deep Q-learning. This implementation is based on the famous paper on Deep Q learning published in Nature.
 
--  Game_pg = implementation of "Game" by policy gradient. This code is based on Andrej Karpathy blog on policy gradient.
+-  Game_PG = implementation of "Game" by policy gradient. This code is based on Andrej Karpathy blog on policy gradient.
 
 ### Results for cartpole
 
